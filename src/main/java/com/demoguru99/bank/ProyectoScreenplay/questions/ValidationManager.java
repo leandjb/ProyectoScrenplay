@@ -1,0 +1,25 @@
+package com.demoguru99.bank.ProyectoScreenplay.questions;
+
+
+import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.Question;
+import net.serenitybdd.screenplay.targets.Target;
+
+public class ValidationManager implements Question<String>{
+
+	private Target target;
+	public ValidationManager(Target target) {
+	this.target = target;
+	}
+	@Override
+	public String answeredBy(Actor actor) {
+		
+		return target.resolveFor(actor).getText().trim();
+	}
+public static ValidationManager in(Target target) {
+	return new ValidationManager(target);
+	
+}
+
+}
+
